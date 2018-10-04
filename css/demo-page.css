@@ -3,11 +3,7 @@
  * Author: Ian Lunn @IanLunn
  * Author URL: http://ianlunn.co.uk/
  * Github: https://github.com/IanLunn/Hover
-
- * Made available under a MIT License:
- * http://www.opensource.org/licenses/mit-license.php
-
- * Hover.css Copyright Ian Lunn 2014.
+ * Hover.css Copyright Ian Lunn 2017.
  */
 
 /**
@@ -32,50 +28,130 @@ hr {
   height: 1px;
 }
 
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: .875em;
+  font-weight: 700;
+}
+nav li {
+  list-style: none;
+  display: block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+@media only screen and (min-width: 768px) {
+  nav li {
+    display: inline-block;
+  }
+}
+
 .sep {
   color: #ddd;
   margin: 0 4px;
 }
 
-.carbon-ad.ad {
+#carbonads {
+  --width: 180px;
+  --font-size: 14px;
+}
+
+#carbonads {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: var(--width);
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, .1);
+  background-color: hsl(0, 0%, 98%);
+  font-size: var(--font-size);
+  line-height: 1.5;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
   position: relative;
   display: block;
-  box-sizing: border-box;
-  max-width: 320px;
-  margin: 0 auto;
-  margin-top: 6em;
-  padding: 1em 2.5em;
-  padding-top: 2em;
-  text-align: center;
-  font-size: 14px;
+  overflow: hidden;
 }
 
-.carbon-ad-label {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  right: 0;
-  margin: 0;
-  margin-bottom: 2px;
-  font-size: 11px;
-  text-align: center;
-  color: #999;
-}
-
-.carbon-ad .carbon-poweredby {
-  margin-bottom: 0;
-  font-size: 12px;
-}
-
-.carbon-ad .carbon-img {
-  margin: 0 auto;
-  margin-bottom: .625em;
-  background: white;
-}
-
-.carbon-ad img {
+.carbon-img {
   display: block;
-  border: solid 1px #ddd;
+  margin-bottom: 8px;
+  max-width: var(--width);
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  margin: 0 auto;
+  max-width: var(--width) !important;
+  width: var(--width);
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  padding: 0 1em 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 10px var(--font-size);
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 0;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 759px) {
+  #carbonads {
+    float: none;
+    margin: 0 auto;
+    max-width: 330px;
+  }
+  #carbonads span {
+    position: relative;
+  }
+  #carbonads > span {
+    max-width: none;
+  }
+  .carbon-img {
+    float: left;
+    margin: 0;
+  }
+
+  .carbon-img img {
+    max-width: 130px !important;
+  }
+  .carbon-text {
+    float: left;
+    margin-bottom: 0;
+    padding: 8px 20px;
+    text-align: left;
+    max-width: calc(100% - 130px - 3em);
+  }
+  .carbon-poweredby {
+    left: 130px;
+    bottom: 0;
+    display: block;
+    width: 100%;
+  }
 }
 
 .main {
@@ -109,8 +185,6 @@ p,
 }
 
 [class^="hvr-"] {
-  /*display: inline-block;*/
-  /*vertical-align: middle;*/
   margin: .4em;
   padding: 1em;
   cursor: pointer;
@@ -119,6 +193,10 @@ p,
   color: #666;
   /* Prevent highlight colour when element is tapped */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  /* Smooth fonts */
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .aligncenter {
@@ -226,7 +304,79 @@ h3 {
   font-weight: normal;
 }
 
-.social {
+.licenses {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.licenses:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.license {
+  display: block !important;
+  margin-bottom: 20px;
+  text-align: center;
+  border: #2098D1 solid 1px;
+}
+
+.license:focus,
+.license:hover {
+  border-color: #207AD1;
+}
+
+.license:focus .button,
+.license:hover .button {
+  background-color: #207AD1;
+  color: white;
+}
+
+.license__content {
+  padding: 25px 10px;
+}
+
+.license__title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.license__title div {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.license__desc {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.license__button.cta {
+  display: block;
+  margin: 0;
+  font-size: 22px;
+}
+
+@media only screen and (min-width: 568px) {
+  .license {
+    width: 48%;
+    float: left;
+  }
+
+  .license:nth-child(2) {
+    float: right;
+  }
+
+  .license__content {
+    padding: 40px 10px;
+  }
+}
+
+.download {
   margin-top: 2.6em;
 }
 

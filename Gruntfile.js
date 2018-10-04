@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
         version: {
             json: {
-              src: ['bower.json']
+              src: ['package.json']
             },
 
             css: {
@@ -88,6 +88,8 @@ module.exports = function(grunt) {
         connect: {
           server: {
             options: {
+              livereload: true,
+              hostname: '0.0.0.0',
               port: 8000,
               base: './'
             }
